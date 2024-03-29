@@ -186,7 +186,7 @@ def train_with_increasing_tf_for_one_epoch(model, trainloader, initial_tf, max_t
                 inputs, labels = batch
                 controller = torch.zeros(len(inputs), 1)
                 inputs = torch.cat((inputs, controller), 1)
-                t_eval, outputs = model(inputs)  # 获取模型对当前批次的预测
+                t_eval, outputs = model(inputs) 
                 loss = cross_entropy_loss(outputs[-1][:,:-1], labels)
                 total_ce += loss.item() * inputs.size(0)
                 total_samples += inputs.size(0)
